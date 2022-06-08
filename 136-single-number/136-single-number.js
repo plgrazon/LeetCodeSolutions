@@ -3,19 +3,11 @@
  * @return {number}
  */
 var singleNumber = function(nums) {
-  const hash = {}
+  let result = 0;
   
   for (let i = 0; i < nums.length; i++) {
-    if (hash.hasOwnProperty(nums[i])) {
-      hash[nums[i]]++;
-    } else {
-      hash[nums[i]] = 1;
-    }
+    result ^= nums[i];
   }
   
-  for (num in hash) {
-    if (hash[num] === 1) {
-      return num;
-    }
-  }
+  return result;
 };
