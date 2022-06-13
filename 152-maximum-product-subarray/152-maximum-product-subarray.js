@@ -12,8 +12,7 @@ var maxProduct = function(nums) {
     
     currMax = Math.max(nums[i], currMax * nums[i], currMin * nums[i]);
     currMin = Math.min(nums[i], temp * nums[i], currMin * nums[i]);
-    max = Math.max(max, currMax, currMin)
-    
+    max = Math.max(max, currMax, currMin);
   }
   
   return max;
