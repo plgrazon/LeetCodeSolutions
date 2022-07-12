@@ -5,15 +5,15 @@
 var isValid = function(s) {
   const open = '({[';
   const closed = ')}]';
-  const queue = [];
+  const stack = [];
   
   for (let i = 0; i < s.length; i++) {
     let isOpen = open.includes(s[i]);
     
     if (isOpen) {
-      queue.push(s[i]);
+      stack.push(s[i]);
     } else {
-      let lastFromQ = queue[queue.length - 1];
+      let lastFromQ = stack[stack.length - 1];
       let currParens = s[i];
       
       if (currParens === ')' && lastFromQ !== '(') {
@@ -23,10 +23,10 @@ var isValid = function(s) {
       } else if (currParens === ']' && lastFromQ !== '[') {
         return false;
       } else {
-        queue.pop();
+        stack.pop();
       }
     }
   }
   
-  return queue.length === 0;
+  return stack.length === 0;
 };
