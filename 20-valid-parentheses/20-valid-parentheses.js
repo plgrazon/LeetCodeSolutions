@@ -3,27 +3,23 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-  const open = '({[';
-  const closed = ')}]';
   const stack = [];
+  const pairs = {
+    ')': '(',
+    '}': '{',
+    ']': '['
+  }
   
   for (let i = 0; i < s.length; i++) {
-    let isOpen = open.includes(s[i]);
+    const isOpening = !pairs.hasOwnProperty(s[i]);
     
-    if (isOpen) {
+    if (isOpening) {
       stack.push(s[i]);
     } else {
-      let lastFromQ = stack[stack.length - 1];
-      let currParens = s[i];
+      const top = stack.pop();
       
-      if (currParens === ')' && lastFromQ !== '(') {
+      if (top !== pairs[s[i]]) {
         return false;
-      } else if (currParens === '}' && lastFromQ !== '{') {
-        return false;
-      } else if (currParens === ']' && lastFromQ !== '[') {
-        return false;
-      } else {
-        stack.pop();
       }
     }
   }
