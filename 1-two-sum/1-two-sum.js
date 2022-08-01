@@ -7,12 +7,15 @@ var twoSum = function(nums, target) {
   const hash = {};
   
   for (let i = 0; i < nums.length; i++) {
-    let remainder = target - nums[i];
+    let curr = nums[i];
+    let rem = target - curr;
     
-    if (hash.hasOwnProperty(remainder)) {
-      return [i, hash[remainder]]
+    if (hash.hasOwnProperty(rem)) {
+      return [i, hash[rem]];
     } else {
-      hash[nums[i]] = i;
+      hash[curr] = i;
     }
   }
+  
+  return [];
 };
