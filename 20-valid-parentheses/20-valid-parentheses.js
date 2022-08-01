@@ -3,22 +3,21 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-  const stack = [];
   const pairs = {
     ')': '(',
     '}': '{',
-    ']': '['
+    ']': '[',
   }
-  
+  const stack = [];
+
   for (let i = 0; i < s.length; i++) {
-    const isOpening = !pairs.hasOwnProperty(s[i]);
+    let curr = s[i];
     
-    if (isOpening) {
-      stack.push(s[i]);
+    if (!pairs.hasOwnProperty(curr)) {
+      stack.push(curr);
     } else {
-      const top = stack.pop();
-      
-      if (top !== pairs[s[i]]) {
+      let prev = stack.pop();
+      if (prev !== pairs[curr]) {
         return false;
       }
     }
