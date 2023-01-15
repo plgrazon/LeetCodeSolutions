@@ -20,8 +20,6 @@ var isIsomorphic = function(s, t) {
       return false;
     } 
   }
-  
-  console.log(sHash, tHash);
-  
+    
   return true;
 };
