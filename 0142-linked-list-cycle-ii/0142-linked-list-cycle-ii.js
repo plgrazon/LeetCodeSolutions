@@ -28,19 +28,19 @@ var getIntersection = function(head) {
 }
 
 var detectCycle = function(head) {
+  if (!head) return null;
+  
   let intersection = getIntersection(head);
+  let start = head;
   
   if (!intersection) return null;
   
-  let pt1 = head;
-  let pt2 = intersection;
-  
-  while (pt1 !== pt2) {
-    pt1 = pt1.next;
-    pt2 = pt2.next;
+  while (start !== intersection) {
+    start = start.next;
+    intersection = intersection.next;
   }
   
-  return pt1;
+  return start;
 }
 
 var detectCycleLoop = function(head) {
