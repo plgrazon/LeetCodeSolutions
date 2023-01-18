@@ -23,5 +23,5 @@ var detectCycle = function(head) {
     head = head.next;
   }
   
-  return head;
+  return null;
 };
