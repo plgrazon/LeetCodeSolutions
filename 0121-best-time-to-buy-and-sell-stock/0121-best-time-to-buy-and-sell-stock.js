@@ -7,11 +7,8 @@ var maxProfit = function(prices) {
   let min = Infinity;
   
   for (let price of prices) {
-    if (price < min) {
-      min = price;
-    } else {
+      min = Math.min(min, price);
       max = Math.max(max, price - min);
-    }
   }
   
   return max;
