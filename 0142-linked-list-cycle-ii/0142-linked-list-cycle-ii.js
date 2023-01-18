@@ -13,7 +13,7 @@
 var detectCycle = function(head) {
   const visitedNodes = new Set();
   
-  while (!visitedNodes.has(head) && head) {
+  while (head) {
     if (!visitedNodes.has(head)) {
       visitedNodes.add(head);
     } else {
