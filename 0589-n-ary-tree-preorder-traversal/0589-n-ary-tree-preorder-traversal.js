@@ -18,7 +18,6 @@ var preorder = function(root) {
   
   while (stack.length) {
     const currNode = stack.pop();
-    console.log(currNode);
     result.push(currNode.val);
     
     for (let i = currNode.children.length - 1; i >= 0; i--) {
