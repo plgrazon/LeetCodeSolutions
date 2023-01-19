@@ -11,6 +11,25 @@
  * @return {number[]}
  */
 var preorder = function(root) {
+  const stack = [];
+  const result = [];
+  
+  const dfs = root => {
+    if (!root) return null;
+    
+    result.push(root.val);
+    
+    for (let i = 0; i < root.children.length; i++) {
+      dfs(root.children[i]);
+    }
+  }
+  
+  dfs(root);
+  
+  return result;
+}
+
+var preorderLoop = function(root) {
   const stack = [root];
   const result = [];
   
