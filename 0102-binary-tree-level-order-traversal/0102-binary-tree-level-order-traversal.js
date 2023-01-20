@@ -30,6 +30,5 @@ var levelOrder = function(root) {
     result.push(levelArr);
   }
 
-  console.log(result);
   return result;
 };
