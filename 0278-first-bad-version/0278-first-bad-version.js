@@ -19,14 +19,14 @@ var solution = function(isBadVersion) {
      */
     return function(n) {
       let left = 1;
-      let right = n + 1;
-      let firstBadVersion = 1;
+      let right = n;
+      let firstBadVersion = n;
 
       while (left <= right) {
         const mid = Math.floor((left + right) / 2);
 
         if (isBadVersion(mid)) {
-          firstBadVersion = mid;
+          firstBadVersion = Math.min(firstBadVersion, mid);
           right = mid - 1;
         } else {
           left = mid + 1;
