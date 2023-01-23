@@ -3,6 +3,20 @@
  * @return {number}
  */
 var fib = function(n) {
+  const memo = {0: 0, 1: 1};
+  
+  const dp = n => {
+    if (n <= 1) return memo[n];
+    
+    if (memo?.[n]) return memo[n];
+    memo[n] = dp(n - 1) + dp(n - 2);
+    return memo[n];
+  }
+  
+  return dp(n);
+}
+
+var fibTopDown = function(n) {
   const dp = n => {
     if (n <= 0) return 0;
     else if (n === 1) return 1;
