@@ -16,6 +16,5 @@ var climbStairs = function(n) {
     dp[i] = dp[i - 1] + dp[i - 2];
   }
   
-  console.log(dp);
   return dp[n];
 };
