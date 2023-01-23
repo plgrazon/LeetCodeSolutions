@@ -6,7 +6,6 @@ var fib = function(n) {
   const dp = new Array(n + 1);
   dp[0] = 0;
   dp[1] = 1;
-  // [0, 1, 1, null] n = 3
   
   if (n < 2) return dp[n];
   
