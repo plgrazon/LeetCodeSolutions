@@ -10,7 +10,19 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isValidBST = function(root) {
+var isValidBST = function(root) {  
+  const traverseDFS = (node, low = -Infinity, high = Infinity) => {
+    if (!node) return true
+    if (node.val <= low) return false;
+    else if (node.val >= high) return false;
+    
+    return  traverseDFS(node.right, node.val, high) && traverseDFS(node.left, low, node.val);
+  }
+  
+  return traverseDFS(root);
+}
+
+var isValidBSTloop = function(root) {
   
   if (!root) return false;
   
