@@ -3,19 +3,19 @@
  * @return {number}
  */
 var fib = function(n) {
-  let prevOne = 0;
-  let prevTwo = 1;
+  let prevOne = 1;
+  let prevTwo = 0;
   
-  if (n === 0) return prevOne;
-  if (n === 1) return prevTwo;
+  if (n === 0) return prevTwo;
+  if (n === 1) return prevOne;
 
   for (let i = 2; i <= n; i++) {
     let temp = prevOne + prevTwo;
-    prevOne = prevTwo;
-    prevTwo = temp;
+    prevTwo = prevOne;
+    prevOne = temp;
   }
   
-  return prevTwo;
+  return prevOne;
 }
 
 var fibTopDownMemo = function(n) {
