@@ -3,6 +3,22 @@
  * @return {number}
  */
 var fib = function(n) {
+  let prevOne = 0;
+  let prevTwo = 1;
+  
+  if (n === 0) return prevOne;
+  if (n === 1) return prevTwo;
+
+  for (let i = 2; i <= n; i++) {
+    let temp = prevOne + prevTwo;
+    prevOne = prevTwo;
+    prevTwo = temp;
+  }
+  
+  return prevTwo;
+}
+
+var fibTopDownMemo = function(n) {
   const memo = {0: 0, 1: 1};
   
   const dp = n => {
