@@ -5,17 +5,18 @@
 var fib = function(n) {
   let prevOne = 1;
   let prevTwo = 0;
+  let curr = 0;
   
   if (n === 0) return prevTwo;
   if (n === 1) return prevOne;
 
   for (let i = 2; i <= n; i++) {
-    let temp = prevOne + prevTwo;
+    curr = prevOne + prevTwo;
     prevTwo = prevOne;
-    prevOne = temp;
+    prevOne = curr;
   }
   
-  return prevOne;
+  return curr;
 }
 
 var fibTopDownMemo = function(n) {
