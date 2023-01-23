@@ -2,7 +2,7 @@
  * @param {number} n
  * @return {number}
  */
-var climbStairs = function(n) {
+var climbStairsRec = function(n) {
   const memo = {};
   
   const dp = n => {
@@ -18,9 +18,8 @@ var climbStairs = function(n) {
   return dp(n);
 }
 
-var climbStairsLoop = function(n) {
+var climbStairs = function(n) {
   const dp = new Array(n + 1);
-  dp[0] = 0;
   dp[1] = 1;
   dp[2] = 2;
   
