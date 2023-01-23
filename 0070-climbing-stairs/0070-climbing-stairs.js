@@ -3,6 +3,22 @@
  * @return {number}
  */
 var climbStairs = function(n) {
+  const memo = {};
+  
+  const dp = n => {
+    if (n <= 2) {
+      return n;
+    }
+    
+    if (dp?.[n]) return dp[n];
+    dp[n] = dp(n - 1) + dp(n - 2);
+    return dp[n];
+  }
+  
+  return dp(n);
+}
+
+var climbStairsLoop = function(n) {
   const dp = new Array(n + 1);
   dp[0] = 0;
   dp[1] = 1;
