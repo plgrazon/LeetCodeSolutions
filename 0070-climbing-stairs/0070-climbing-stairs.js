@@ -20,6 +20,7 @@ var climbStairsRec = function(n) {
 
 var climbStairs = function(n) {
   const dp = new Array(n + 1);
+  dp[0] = 0;
   dp[1] = 1;
   dp[2] = 2;
   
