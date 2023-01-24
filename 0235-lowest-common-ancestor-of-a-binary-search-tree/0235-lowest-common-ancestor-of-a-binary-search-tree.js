@@ -13,6 +13,27 @@
  * @return {TreeNode}
  */
 var lowestCommonAncestor = function(root, p, q) {
+  const stack = [root];
+  
+  while (stack.length) {
+    let node = stack.pop();
+    let val = node.val;
+    let pVal = p.val;
+    let qVal = q.val;
+    
+    if (val < pVal && val < qVal) {
+      stack.push(node.right);
+    } else if (val > pVal && val > qVal) {
+      stack.push(node.left);
+    } else {
+      return node;
+    }
+  }
+  
+  return null;
+}
+
+var lowestCommonAncestorRec = function(root, p, q) {
   const dp = root => {
     let val = root.val;
     let pVal = p.val;
