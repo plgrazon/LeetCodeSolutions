@@ -14,12 +14,13 @@
  */
 var lowestCommonAncestor = function(root, p, q) {
   const stack = [root];
+  let pVal = p.val;
+  let qVal = q.val;
   
   while (stack.length) {
     let node = stack.pop();
     let val = node.val;
-    let pVal = p.val;
-    let qVal = q.val;
+
     
     if (val < pVal && val < qVal) {
       stack.push(node.right);
@@ -34,10 +35,11 @@ var lowestCommonAncestor = function(root, p, q) {
 }
 
 var lowestCommonAncestorRec = function(root, p, q) {
+  let pVal = p.val;
+  let qVal = q.val;
+  
   const dp = root => {
     let val = root.val;
-    let pVal = p.val;
-    let qVal = q.val;
     
     if (val > pVal && val > qVal) return dp(root.left);
     else if (val < pVal && val < qVal) return dp(root.right);
