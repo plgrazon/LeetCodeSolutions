@@ -12,7 +12,7 @@
  * @param {TreeNode} q
  * @return {TreeNode}
  */
-var lowestCommonAncestor = function(root, p, q) {
+var lowestCommonAncestorLoop = function(root, p, q) {
   const stack = [root];
   let pVal = p.val;
   let qVal = q.val;
@@ -34,7 +34,7 @@ var lowestCommonAncestor = function(root, p, q) {
   return null;
 }
 
-var lowestCommonAncestorRec = function(root, p, q) {
+var lowestCommonAncestor = function(root, p, q) {
   let pVal = p.val;
   let qVal = q.val;
   
