@@ -8,9 +8,9 @@ var numIslands = function(grid) {
   let islands = 0;
   
   const dfs = (row, col) => {
-    if (row < 0 || row >= height || col < 0 || col >= width || grid[row][col] === "0") return;
+    if (row < 0 || row >= height || col < 0 || col >= width || grid[row][col] == 0) return;
     
-    grid[row][col] = "0";
+    grid[row][col] = 0;
     
     dfs(row + 1, col);
     dfs(row - 1, col);
@@ -20,7 +20,7 @@ var numIslands = function(grid) {
   
   for (let row = 0; row < height; row++) {
     for (let col = 0; col < width; col++) {
-      if (grid[row][col] === "1") {
+      if (grid[row][col] == 1) {
         islands++;
         
         dfs(row, col);
