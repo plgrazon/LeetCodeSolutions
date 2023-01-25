@@ -5,16 +5,16 @@
 var numIslands = function(grid) {
   const height = grid.length;
   const width = grid[0].length;
-  const visited = {};
+  // const visited = {};
   let islands = 0;
   
   const dfs = (row, col) => {
     if (row < 0 || row >= height || col < 0 || col >= width || grid[row][col] == 0) return;
     
-    if (!visited[`${row}${col}`]); {
+    // if (!visited[`${row}${col}`]); {
       grid[row][col] = 0;
-      visited[`${row}${col}`] = true; 
-    }
+      // visited[`${row}${col}`] = true; 
+    // }
     
     dfs(row + 1, col);
     dfs(row - 1, col);
