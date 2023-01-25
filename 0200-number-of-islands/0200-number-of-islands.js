@@ -11,7 +11,7 @@ var numIslands = function(grid) {
   const dfs = (row, col) => {
     if (row < 0 || row >= height || col < 0 || col >= width || grid[row][col] == 0) return;
     
-    if (!visited[row + "" + col]); {
+    if (!visited[`${row}${col}`]); {
       grid[row][col] = 0;
       visited[`${row}${col}`] = true; 
     }
