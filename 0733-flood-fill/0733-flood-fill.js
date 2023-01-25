@@ -17,16 +17,16 @@ var floodFill = function(image, sr, sc, newColor) {
     } else {
       image[row][col] = newColor;
       
-      dfs(row + 1, col, ogColor);
-      dfs(row - 1, col, ogColor);
-      dfs(row, col + 1, ogColor);
-      dfs(row, col - 1, ogColor);
+      dfs(row + 1, col);
+      dfs(row - 1, col);
+      dfs(row, col + 1);
+      dfs(row, col - 1);
       
       return;
     }
   }
   
-  dfs(sr, sc, ogColor);
+  dfs(sr, sc);
   
   return image;
 };
