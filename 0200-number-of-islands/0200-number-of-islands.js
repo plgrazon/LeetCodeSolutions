@@ -56,7 +56,7 @@ var numIslands = function(grid) {
     if (!visited[`${row}${col}`]); {
       grid[row][col] = 0;
       visited[`${row}${col}`] = true; 
-    }
+    
     
     // grid[row][col] = 0;
     
@@ -64,6 +64,7 @@ var numIslands = function(grid) {
     dfs(row - 1, col);
     dfs(row, col + 1);
     dfs(row, col - 1);
+    }
   }
   
   for (let row = 0; row < height; row++) {
