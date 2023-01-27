@@ -53,18 +53,17 @@ var numIslands = function(grid) {
     if (row < 0 || row >= height || col < 0 || col >= width || grid[row][col] == 0) return;
     
     // without input mutation
-    if (!visited[`${row}${col}`]); {
-      grid[row][col] = 0;
-      visited[`${row}${col}`] = true; 
+    // if (!visited[`${row}${col}`]); {
+    //   grid[row][col] = 0;
+    //   visited[`${row}${col}`] = true; 
+    // }
     
-    
-    // grid[row][col] = 0;
+    grid[row][col] = 0;
     
     dfs(row + 1, col);
     dfs(row - 1, col);
     dfs(row, col + 1);
     dfs(row, col - 1);
-    }
   }
   
   for (let row = 0; row < height; row++) {
