@@ -12,8 +12,7 @@ var numIslands = function(grid) {
   
   const bfs = (row, col) => {
     const queue = [[row, col]];
-    // visited[`${row}${col}`] = true;
-    visited[[row, col]] = true;
+    visited[`${row},${col}`] = true;
 
     while (queue.length) {
       const [cr, cc] = queue.shift();
@@ -22,9 +21,9 @@ var numIslands = function(grid) {
         const nr = cr + r;
         const nc = cc + c;
         
-        if (nr >= 0 && nr < height && nc >= 0 & nc < width && grid[nr][nc] === "1" && !visited[[nr, nc]]) {
+        if (nr >= 0 && nr < height && nc >= 0 & nc < width && grid[nr][nc] === "1" && !visited[`${nr},${nc}`]) {
           queue.push([nr, nc]);
-          visited[[nr, nc]] = true;
+          visited[`${nr},${nc}`] = true;
         }
       }
     }
@@ -33,7 +32,7 @@ var numIslands = function(grid) {
   
   for (let row = 0; row < height; row++) {
     for (let col = 0; col < width; col++) {
-        if (!visited[[row, col]] && grid[row][col] === "1") {
+        if (!visited[`${row},${col}`] && grid[row][col] === "1") {
           islands++;
           bfs(row, col);
         }
