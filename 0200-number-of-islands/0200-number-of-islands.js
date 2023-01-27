@@ -50,31 +50,36 @@ var numIslands = function(grid) {
   let islands = 0;
   
   const dfs = (row, col) => {
-    if (row < 0 || row >= height || col < 0 || col >= width || grid[row][col] == 0) return;
+    if (row < 0 || row >= height || col < 0 || col >= width || grid[row][col] == 0 || visited[`${row},${col}`]) return;
     
     // without input mutation
-  if (!visited[row + "" + col]); {
-      grid[row][col] = 0;
-      visited[`${row}${col}`] = true; 
+    if (!visited[`${row},${col}`]); {
+      visited[`${row},${col}`] = true; 
+
+      dfs(row + 1, col);
+      dfs(row - 1, col);
+      dfs(row, col + 1);
+      dfs(row, col - 1);
     }
     
     // grid[row][col] = 0;
-    
-    dfs(row + 1, col);
-    dfs(row - 1, col);
-    dfs(row, col + 1);
-    dfs(row, col - 1);
+    // dfs(row + 1, col);
+    // dfs(row - 1, col);
+    // dfs(row, col + 1);
+    // dfs(row, col - 1);
   }
   
   for (let row = 0; row < height; row++) {
     for (let col = 0; col < width; col++) {
-      if (grid[row][col] == 1) {
+      if (grid[row][col] == 1 && !visited[`${row},${col}`]) {
         islands++;
         
         dfs(row, col);
       }
     }
   }
+  
+  console.log(visited);
   
   return islands;
 };
