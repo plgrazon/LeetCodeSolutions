@@ -2,7 +2,7 @@
  * @param {character[][]} grid
  * @return {number}
  */
-var numIslands = function(grid) {
+var numIslandsBFS = function(grid) {
   const height = grid.length;
   const width = grid[0].length;
   const directions = [[1, 0], [-1, 0], [0, 1], [0, -1]];
@@ -42,23 +42,23 @@ var numIslands = function(grid) {
   return islands;
 }
 
-var numIslandsDFS = function(grid) {
+var numIslands = function(grid) {
   const height = grid.length;
   const width = grid[0].length;
   // without input mutation
-  // const visited = {};
+  const visited = {};
   let islands = 0;
   
   const dfs = (row, col) => {
     if (row < 0 || row >= height || col < 0 || col >= width || grid[row][col] == 0) return;
     
     // without input mutation
-    // if (!visited[`${row}${col}`]); {
-    //   grid[row][col] = 0;
-    //   visited[`${row}${col}`] = true; 
-    // }
+    if (!visited[`${row}${col}`]); {
+      grid[row][col] = 0;
+      visited[`${row}${col}`] = true; 
+    }
     
-    grid[row][col] = 0;
+    // grid[row][col] = 0;
     
     dfs(row + 1, col);
     dfs(row - 1, col);
