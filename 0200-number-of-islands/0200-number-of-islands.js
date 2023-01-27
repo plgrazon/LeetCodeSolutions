@@ -5,6 +5,48 @@
 var numIslands = function(grid) {
   const height = grid.length;
   const width = grid[0].length;
+  const directions = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+  let islands = 0;
+  // without input mutation
+  const visited = {};
+  
+  const bfs = (row, col) => {
+    const queue = [[row, col]];
+    grid[row][col] = "0";
+    
+    while (queue.length) {
+      const [cr, cc] = queue.shift();
+      
+      for (const [r, c] of directions) {
+        const nr = cr + r;
+        const nc = cc + c;
+        
+        if (nr >= 0 && nr < height && nc >= 0 & nc < width 
+            && grid[nr][nc] === "1") {
+          queue.push([nr, nc]);
+          grid[nr][nc] = "0";
+          // visited[`${nr}${nc}`] = true;
+        }
+      }
+    }
+    
+  }
+  
+  for (let row = 0; row < height; row++) {
+    for (let col = 0; col < width; col++) {
+        if (grid[row][col] === "1") {
+          bfs(row, col);
+          islands++;
+        }
+    }
+  }
+  
+  return islands;
+}
+
+var numIslandsDFS = function(grid) {
+  const height = grid.length;
+  const width = grid[0].length;
   // without input mutation
   // const visited = {};
   let islands = 0;
