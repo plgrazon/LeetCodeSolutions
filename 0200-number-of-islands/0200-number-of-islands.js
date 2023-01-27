@@ -53,7 +53,7 @@ var numIslands = function(grid) {
     if (row < 0 || row >= height || col < 0 || col >= width || grid[row][col] == 0 || visited[`${row},${col}`]) return;
     
     // without input mutation
-    if (!visited[`${row},${col}`]); {
+    if (!visited[`${row}${col}`]); {
       visited[`${row},${col}`] = true; 
 
       dfs(row + 1, col);
@@ -62,6 +62,7 @@ var numIslands = function(grid) {
       dfs(row, col - 1);
     }
     
+    // with mutation
     // grid[row][col] = 0;
     // dfs(row + 1, col);
     // dfs(row - 1, col);
