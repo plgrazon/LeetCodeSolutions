@@ -2,7 +2,7 @@
  * @param {character[][]} grid
  * @return {number}
  */
-var numIslandsBFS = function(grid) {
+var numIslands = function(grid) {
   const height = grid.length;
   const width = grid[0].length;
   const directions = [[1, 0], [-1, 0], [0, 1], [0, -1]];
@@ -42,7 +42,7 @@ var numIslandsBFS = function(grid) {
   return islands;
 }
 
-var numIslands = function(grid) {
+var numIslandsDFS = function(grid) {
   const height = grid.length;
   const width = grid[0].length;
   // without input mutation
