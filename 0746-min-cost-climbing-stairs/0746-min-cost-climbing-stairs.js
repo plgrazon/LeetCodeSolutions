@@ -2,7 +2,7 @@
  * @param {number[]} cost
  * @return {number}
  */
-var minCostClimbingStairs = function(cost) {
+var minCostClimbingStairsRec = function(cost) {
   const memo = {0: 0, 1: 0};
   
   const dp = (i) => {
@@ -17,6 +17,14 @@ var minCostClimbingStairs = function(cost) {
   }
 
   return dp(cost.length);
+}
+
+var minCostClimbingStairs = function(cost) {
+  for (let i = 2; i < cost.length; i++) {
+    cost[i] += Math.min(cost[i - 1], cost[i - 2]);
+  }
+  
+  return Math.min(cost[cost.length - 1], cost[cost.length - 2]);
 }
 
 var minCostClimbingStairsLoop = function(cost) {
