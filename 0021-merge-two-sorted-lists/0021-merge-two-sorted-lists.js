@@ -24,7 +24,7 @@ var mergeTwoLists = function(list1, list2) {
   }
 };
 
-var mergeTwoListsLoop = function(list1, list2) {
+var mergeTwoListsLoopSolution = function(list1, list2) {
   const head = new ListNode(-1);
   let currNode = head;
   
