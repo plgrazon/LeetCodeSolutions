@@ -12,7 +12,7 @@
  * }
  */
 
-function isSymmetric(root: TreeNode | null): boolean {
+function isSymmetricRecursive(root: TreeNode | null): boolean {
   const traverse = (root1: TreeNode | null, root2: TreeNode | null) => {
     if (root1 === null && root2 === null) return true;
     if (root1 === null || root2 === null) return false;
@@ -22,4 +22,25 @@ function isSymmetric(root: TreeNode | null): boolean {
 
 
   return traverse(root, root);
+};
+
+function isSymmetric(root: TreeNode | null): boolean {
+  const queue = [];
+  queue.push(root);
+  queue.push(root);
+
+  while (queue.length) {
+    const root1 = queue.shift();
+    const root2 = queue.shift();
+
+    if (root1 === null && root2 === null) continue;
+    if (root1 === null || root2 === null) return false;
+    if (root1.val !== root2.val) return false;
+    queue.push(root1.left);
+    queue.push(root2.right);
+    queue.push(root1.right);
+    queue.push(root2.left);
+  }
+
+  return true;
 };
