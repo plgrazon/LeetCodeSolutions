@@ -16,6 +16,5 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
       nums1[writer] = nums2[p2];
       p2++;
     }
-    console.log(nums1);
   }
 };
