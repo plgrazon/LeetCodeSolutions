@@ -23,23 +23,14 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
   // space: O(1)
   let p1 = m - 1;
   let p2 = n - 1;
-  let len = nums1.length;
 
-  while (len >= 0) {
-    let writer = len - 1;
+  for (let writer = nums1.length - 1; writer >= 0; writer--) {
+    if (p2 < 0) return;
 
-    if (p1 >= 0 && p2 >= 0) {
-      if (nums1[p1] >= nums2[p2]) {
-        nums1[writer--] = nums1[p1--];
-      } else {
-        nums1[writer--] = nums2[p2--];
-      }
-    } else if (p1 < 0) {
-      nums1[writer--] = nums2[p2--];
+    if (p1 >= 0 && nums1[p1] >= nums2[p2]) {
+      nums1[writer] = nums1[p1--];
     } else {
-      break;
+      nums1[writer] = nums2[p2--];
     }
-    
-    len--;
   }
 };
