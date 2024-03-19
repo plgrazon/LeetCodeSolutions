@@ -1,9 +1,11 @@
 function removeElement(nums: number[], val: number): number {
+  // fast and slow pointer:
+  // time: O(n)
+  // space: O(n)
   let fast = 0;
   let slow = 0;
-  const len = nums.length;
 
-  while (fast < len) {
+  while (fast < nums.length) {
     if (nums[fast] === val) {
       fast++;
     } else {
