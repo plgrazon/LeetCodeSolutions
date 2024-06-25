@@ -27,6 +27,8 @@ function merge(nums1: number[], m: number, nums2: number[], n: number): void {
   // }
 
   // two pointers start to end
+  // time: O(n)
+  // space: O(1)
   let p1 = m - 1;
   let p2 = n - 1;
 
