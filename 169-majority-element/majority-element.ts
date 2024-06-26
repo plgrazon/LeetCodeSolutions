@@ -1,4 +1,7 @@
 function majorityElement(nums: number[]): number {
+  // hash table
+  // time O(n)
+  // space O(n)
   const hash: { [key: string]: number } = {};
   let max = 0;
   let num = nums[0];
