@@ -1,10 +1,7 @@
 function removeDuplicates(nums: number[]): number {
-  // ex1
-  // [1,1,2,2,3,3]
-  //          w
-  //            i
-  // count = 1
-
+  // two pointer
+  // time O(n)
+  // space O(1)
   if (nums.length <= 0) return 1;
 
   let writer = 1;
