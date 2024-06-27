@@ -18,10 +18,29 @@ function rotate(nums: number[], k: number): void {
   // solution 2:
   // time O(n)
   // space O(n);
-  const arrCopy = [...nums];
+  // const arrCopy = [...nums];
+  // for (let i = 0; i < arrCopy.length; i++) {
+  //   let writeIdx = (i + k) % arrCopy.length;
+  //   nums[writeIdx] = arrCopy[i];
+  // }
 
-  for (let i = 0; i < arrCopy.length; i++) {
-    let writeIdx = (i + k) % arrCopy.length;
-    nums[writeIdx] = arrCopy[i];
+  // solution 3:
+  // time O(n)
+  // space O(1);
+  k %= nums.length;
+  nums.reverse();
+  let end = k;
+  let start = 0;
+  while (start < end) {
+    [nums[start], nums[end - 1]] = [nums[end - 1], nums[start]];
+    start++;
+    end--;
+  }
+  end = nums.length;
+  start = k;
+  while (start < end) {
+    [nums[start], nums[end - 1]] = [nums[end - 1], nums[start]];
+    start++;
+    end--;
   }
 };
