@@ -28,9 +28,17 @@ function rotate(nums: number[], k: number): void {
   // time O(n)
   // space O(1);
   k %= nums.length;
-  nums.reverse();
-  let end = k;
+  // whole array
+  let end = nums.length;
   let start = 0;
+  while (start < end) {
+    [nums[start], nums[end - 1]] = [nums[end - 1], nums[start]];
+    start++;
+    end--;
+  }
+
+  end = k;
+  start = 0;
   while (start < end) {
     [nums[start], nums[end - 1]] = [nums[end - 1], nums[start]];
     start++;
